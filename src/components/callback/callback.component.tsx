@@ -11,16 +11,20 @@ export const CallbackComponent: React.FC<Props> = () => {
     if (!token) {
       const hash = window.location.hash;
       const access_token = parseHash(`${hash}`);      
+      console.log({access_token});
+      
       if (access_token) {
         loginSuccess(access_token);
       } else {
         loginFailed();
       }
     }
-  }, []);
+  }, [loginSuccess, loginFailed, token]);
 
   const parseHash = (hash: string) => {
+    /* eslint-disable */
     return hash.match(/\#(?:access_token)\=([\S\s]*?)\&/)![1];
+    /* eslint-enable */
   };
 
   if (isAuthenticated) {

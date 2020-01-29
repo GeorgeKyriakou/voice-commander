@@ -9,7 +9,12 @@ export interface PlayerInterface {
   currently_playing_type: string;
   actions: any;
   progress_ms: number;
+  contentPlaying: boolean;
   getCurrentTrack: Function;
+  pausePlayback: Function;
+  resumePlayback: Function;
+  playNext: Function;
+  playPrevious: Function;
 }
 
 export interface Track {

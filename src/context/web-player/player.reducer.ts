@@ -13,8 +13,22 @@ export const playerReducer = (state: PlayerInterface, action: any) => {
         return {
           ...state,
           isLoading: false,
-          // item: action.payload.context.data.item 
+          item: action.payload,
+          contentPlaying: true,
         };
+        case playerActions.PAUSE_CURRENT_TRACK_SUCCESS:
+          return {
+            ...state,
+            isLoading: false,
+            contentPlaying: false,
+          };
+          case playerActions.RESUME_PLAY_SUCCESS:
+            return {
+              ...state,
+              isLoading: false,
+              contentPlaying: true,
+            };
+        
     default:
       return state;
   }

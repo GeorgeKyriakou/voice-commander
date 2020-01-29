@@ -1,12 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/auth.context";
 import { GlobalStyle } from "../../styles";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from "../../utils/protectedRoute";
 import { LoginComponent } from "../login/login.component";
 import { WebPlayerComponent } from "../web-player/web-player.component";
@@ -19,7 +14,7 @@ export const MainComponent: React.FC<Props> = () => {
 
   useEffect(() => {
     checkAuthenticated();
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <>

@@ -9,9 +9,11 @@ export default (state: AuthInterface, action: any) => {
         isLoading: true
       };
     case authActions.AUTHENTICATE_SUCCESS:      
+      sessionStorage.setItem("accessToken", action.payload);
+      sessionStorage.setItem("grantedOn", `${new Date().getTime()}`);
       return {
         ...state,
-        token: action.payload.accessToken,
+        token: action.payload,
         isAuthenticated: true,
         isLoading: false
       };
@@ -23,6 +25,8 @@ export default (state: AuthInterface, action: any) => {
       };
 
     case authActions.LOGOUT_SUCCESS:
+      sessionStorage.removeItem("accessToken");
+      sessionStorage.removeItem("grantedOn");
       return {
         ...state,
         token: null,

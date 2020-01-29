@@ -7,6 +7,7 @@ interface Props {
 
 export const LoginComponent: React.FC<Props> = () => {
   const { login, token } = useContext(AuthContext);
+
   useEffect(() => {
     if (!token) {
       login();

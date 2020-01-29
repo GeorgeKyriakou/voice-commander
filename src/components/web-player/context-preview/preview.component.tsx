@@ -7,9 +7,10 @@ export const ContextPreviewComponent: React.FC<Props> = () => {
     const { item, getCurrentTrack } = playerContext;
     const [currentSong, setCurrentSong] = useState(item)
 
-  useEffect(() => {
-    getCurrentTrack()
-  }, [item]);
+    useEffect(() => {
+        getCurrentTrack()
+    setCurrentSong(item)
+  }, []);
 
   return <div>CONTEXT: currentSong {JSON.stringify(currentSong)}</div>;
 };

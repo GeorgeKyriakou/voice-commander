@@ -1,9 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
-import { environment } from "../../environment/environment";
+
 import AuthContext from "../../context/auth/auth.context";
 import { ContextPreviewComponent } from "./context-preview/preview.component";
-import PlayerContext from "../../context/web-player/player.context";
 import WebPlayerState from "../../context/web-player/player.state";
+import { ControllsComponent } from "./player-controlls/controlls.component";
 
 interface Props {}
 
@@ -44,7 +44,9 @@ export const WebPlayerComponent: React.FC<Props> = () => {
       console.log("Device ID has gone offline", p.device_id)
     );
 
-    player.connect();
+    player.connect().then((success: any) => {
+      if (success) setPlayerLoaded(true);
+    });
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export const WebPlayerComponent: React.FC<Props> = () => {
         console.error({ error });
       }
     );
-  }, []);
+  }, [token]);
 
   const loadWebPlayer = () => {
     return new Promise((resolve, reject) => {
@@ -76,7 +78,6 @@ export const WebPlayerComponent: React.FC<Props> = () => {
       script.addEventListener("load", () => {
         const tock = new Date().getMilliseconds();
         console.log("Time taken to load spotify script", tock - tick);
-        setPlayerLoaded(true);
         resolve(true);
       });
       script.addEventListener("error", e => {
@@ -87,14 +88,11 @@ export const WebPlayerComponent: React.FC<Props> = () => {
   };
 
   return (
-    <>
-      {playerLoaded ? (
-        <WebPlayerState>
-          <ContextPreviewComponent />
-        </WebPlayerState>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </>
+    <WebPlayerState>
+      {playerLoaded ? <>
+        <ContextPreviewComponent />
+        <ControllsComponent/>
+      </> : <div>Loading...</div>}
+    </WebPlayerState>
   );
 };
