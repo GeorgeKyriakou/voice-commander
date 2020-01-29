@@ -2,15 +2,46 @@ import styled, { css } from "styled-components";
 
 export const Controlls = styled.div`
   ${({ theme }) => css`
-  width: 600px;
-  height: 600px;
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  background-color: ${theme.colors.lightBlue};
- 
-    .button{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
 
+    align-items: center;
+    background-color: ${theme.colors.lightBlue};
+    .controls {
+      display:flex;
+      img {
+        width: 100px;
+        padding:10px;
+        cursor: pointer;
+      }
+    }
+    .album-spotlight {
+      margin-top: -10%;
+      margin-bottom: 5%;
+      img {
+        width:100%;
+      }
+    }
+    } */
+  `}
+`;
+
+export const VoiceControlls = styled.div`
+  ${({ theme }) => css`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: ${theme.colors.lightBlue};
+ 
+    img{
+      width: 100px;
+      padding:10px;
+      cursor: pointer;
     }
 
     } */

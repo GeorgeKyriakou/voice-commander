@@ -27,7 +27,7 @@ const WebPlayerState = (props: any) => {
         );
         dispatch({
           type: playerActions.GET_PLAYING_CURRENTLY_SUCCESS,
-          payload: res.data
+          payload: res.data? res.data.item: null
         });
       } catch (error) {
         dispatch({
@@ -65,6 +65,7 @@ const WebPlayerState = (props: any) => {
         dispatch({
           type: playerActions.PLAY_NEXT_SUCCESS
         });
+        state.getCurrentTrack()
       } catch (error) {
         dispatch({
           type: playerActions.PLAY_NEXT_FAILURE
@@ -79,6 +80,7 @@ const WebPlayerState = (props: any) => {
         dispatch({
           type: playerActions.PLAY_PREVIOUS_SUCCESS
         });
+        state.getCurrentTrack()
       } catch (error) {
         dispatch({
           type: playerActions.PLAY_PREVIOUS_FAILURE

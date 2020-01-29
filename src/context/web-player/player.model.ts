@@ -20,6 +20,7 @@ export interface PlayerInterface {
 export interface Track {
   country: string;
   artists: Array<any>;
+  album: Album;
   email: string;
   available_markets: Array<string>;
   disc_number: number;
@@ -52,4 +53,18 @@ export interface CurrentContext {
   item: Track;
   currently_playing_type: "track" | "episode" | "ad" | unknown;
   actions: any;
+}
+
+interface Album {
+  aritsts: Array<Artist>;
+  name:string;
+  images: Array<any>;
+}
+
+interface Artist {
+  external_urls: any;
+  href: string;
+  id: string;
+  name:string;
+  uri:string;
 }

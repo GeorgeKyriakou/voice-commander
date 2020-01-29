@@ -6,6 +6,7 @@ export default {
     darkBlue: "#3C6997",
     darkestBlue:"#094074",
     danger: "#FF595E",
-    success: "#5C9C77"
+    success: "#5C9C77",
+    white: "#FFFFFF"
   }
 };

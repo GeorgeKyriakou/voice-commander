@@ -5,6 +5,7 @@ import { ContextPreviewComponent } from "./context-preview/preview.component";
 import WebPlayerState from "../../context/web-player/player.state";
 import { ControllsComponent } from "./player-controlls/controlls.component";
 
+import {WebPlayer} from './web-player.style';
 interface Props {}
 
 declare global {
@@ -89,10 +90,12 @@ export const WebPlayerComponent: React.FC<Props> = () => {
 
   return (
     <WebPlayerState>
+      <WebPlayer>
       {playerLoaded ? <>
         <ContextPreviewComponent />
         <ControllsComponent/>
       </> : <div>Loading...</div>}
+      </WebPlayer>
     </WebPlayerState>
   );
 };
