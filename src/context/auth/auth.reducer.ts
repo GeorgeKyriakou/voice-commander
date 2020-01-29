@@ -1,5 +1,5 @@
 import * as authActions from "./auth.actions";
-import { AuthInterface } from "./auth.models";
+import { AuthInterface } from "./auth.model";
 
 export default (state: AuthInterface, action: any) => {
   switch (action.type) {

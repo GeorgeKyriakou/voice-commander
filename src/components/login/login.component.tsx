@@ -6,13 +6,12 @@ interface Props {
 }
 
 export const LoginComponent: React.FC<Props> = () => {
-  const { login, token, isAuthenticated } = useContext(AuthContext);
+  const { login, token } = useContext(AuthContext);
   useEffect(() => {
-    console.log({token, isAuthenticated});
     if (!token) {
       login();
     }
-  }, [token]);
+  }, [token, login]);
 
-return <>{token}</>;
+return <></>;
 };
