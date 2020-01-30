@@ -25,25 +25,12 @@ export const Controlls = styled.div`
         width:100%;
       }
     }
-    } */
-  `}
-`;
-
-export const VoiceControlls = styled.div`
-  ${({ theme }) => css`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    background-color: ${theme.colors.lightBlue};
- 
-    img{
-      width: 100px;
-      padding:10px;
-      cursor: pointer;
+    .voice-controlls {
+      position:absolute;
+      bottom:5%;
+      right:5%;
     }
-
     } */
   `}
 `;
+

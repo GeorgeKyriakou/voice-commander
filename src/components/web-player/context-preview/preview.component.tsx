@@ -16,6 +16,13 @@ export const ContextPreviewComponent: React.FC<Props> = () => {
     setCurrentSong(item);
   }, [item]);
 
+  if (item === null) {
+    return (
+      <Preview>
+        <h5>Queue a song on your Spotify app, and then come back here :)</h5>
+      </Preview>
+    );
+  }
   return (
     <Preview>
       {item.artists && (

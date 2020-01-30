@@ -6,6 +6,7 @@ import back from "../../../assets/back.svg";
 import pause from "../../../assets/pause.svg";
 import play from "../../../assets/play.svg";
 import next from "../../../assets/next.svg";
+import { SpeechComponent } from "./speech/speech.component";
 
 interface Props {}
 
@@ -22,7 +23,9 @@ export const ControllsComponent: React.FC<Props> = () => {
   const [playing, setPlaying] = useState(contentPlaying);
 
   useEffect(() => {
-    Object.keys(item).length > 0 ? setPlaying(true) : setPlaying(false);
+    if(item){
+      Object.keys(item).length > 0 ? setPlaying(true) : setPlaying(false);
+    } 
   }, [item]);
 
   const handleOnPrevious = () => {
@@ -43,20 +46,21 @@ export const ControllsComponent: React.FC<Props> = () => {
   };
 
   return (
-    <>
-       <Controlls>
-    <div className="album-spotlight">
-      {
-item.album &&
-        <img
-        src={item.album.images.find((img: any) => img.height === 640).url}
-        alt=""
-        />
+    <Controlls>
+      {item ===null && <div>Seems like you're not playing something</div>}
+      {item &&
+        <div className="album-spotlight">
+        {item.album && (
+          <img
+            src={item.album.images.find((img: any) => img.height === 640).url}
+            alt=""
+          />
+        )}
+      </div>
       }
-    </div>
-   
+
       <div className="controls">
-      <div onClick={handleOnPrevious}>
+        <div onClick={handleOnPrevious}>
           <img src={back} />
         </div>
         <div onClick={handleOnPauseResume}>
@@ -66,7 +70,9 @@ item.album &&
           <img src={next} />
         </div>
       </div>
-      </Controlls>
-    </>
+      <div className="voice-controlls">
+        <SpeechComponent/>
+      </div>
+    </Controlls>
   );
 };
