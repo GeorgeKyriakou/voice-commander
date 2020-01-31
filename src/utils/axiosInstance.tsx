@@ -16,7 +16,7 @@ axiosInstance.interceptors.request.use(
         config.headers.Authorization = `Bearer ${accessToken}`;
       }
     } else {
-      return promise.reject('Token has expired');  
+      throw promise.reject('Token has expired');  
     }
     return config;
   },

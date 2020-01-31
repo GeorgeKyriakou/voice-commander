@@ -23,7 +23,6 @@ export const SpeechComponent: React.FC<Props> = () => {
     window.SpeechRecognition || window.webkitSpeechRecognition;
   const listen = new SpeechRecognition();
 
-  const [command, setCommand] = useState("");
   const [speechAlert, setSpeechAlert] = useState("");
 
   useEffect(() => {
@@ -31,9 +30,9 @@ export const SpeechComponent: React.FC<Props> = () => {
     listen.start();
   }, []);
 
-  useEffect(() => {
-    setSpeechAlert("");
-    switch (command) {
+  const executeVoiceCommand = (command:any)=>{
+    setSpeechAlert("");    
+    switch (command.toLowerCase().trim()) {
       case "play":
         resumePlayback();
         break;
@@ -50,14 +49,13 @@ export const SpeechComponent: React.FC<Props> = () => {
         setSpeechAlert("I didn't quite get that");
         break;
     }
-  }, [command]);
+  }
 
   listen.onstart = _ => console.log("listening...");
   listen.onresult = e => {
     const current = e.resultIndex;
     const transcript = e.results[current][0].transcript;
-    console.log(transcript);
-    setCommand(transcript);
+    executeVoiceCommand(transcript);
   };
 
   return (
