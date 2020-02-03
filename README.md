@@ -1,7 +1,7 @@
 ## Voice Commander
 **Version 1.0.0**
 
-Small demo project for voice controlled of the Spotify playback, built wit React/Typescript.
+Small demo project for voice controlled of the Spotify playback, built with React/Typescript.
 
 ## Insturctions
 1. Play something on the spotify app
