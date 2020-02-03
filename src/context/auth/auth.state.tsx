@@ -3,6 +3,7 @@ import React, { useReducer } from "react";
 import authReducer from "./auth.reducer";
 import * as authActions from "./auth.actions";
 import AuthContext from "./auth.context";
+import { environment } from "../../environment/environment";
 
 const AuthState = (props: any) => {
   const initialState = {
@@ -25,7 +26,7 @@ const AuthState = (props: any) => {
       const scopes =
         "user-modify-playback-state user-read-playback-state streaming user-read-email user-read-private";
       const client_id = "e222016a7b824d779c374b4c87687ddd";
-      const redirect_uri = "http://localhost:3000/callback";
+      const redirect_uri = environment.redirectLocal;
       window.location.href = `https://accounts.spotify.com/authorize?response_type=token&client_id=${client_id}&scope=${encodeURIComponent(
         scopes
       )}&redirect_uri=${encodeURIComponent(redirect_uri)}`;

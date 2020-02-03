@@ -30,8 +30,10 @@ export const SpeechComponent: React.FC<Props> = () => {
     listen.start();
   }, []);
 
-  const executeVoiceCommand = (command:any)=>{
-    setSpeechAlert("");    
+  const executeVoiceCommand = (command: any) => {
+    setSpeechAlert("");
+    console.log("I heard:", command);
+
     switch (command.toLowerCase().trim()) {
       case "play":
         resumePlayback();
@@ -49,7 +51,7 @@ export const SpeechComponent: React.FC<Props> = () => {
         setSpeechAlert("I didn't quite get that");
         break;
     }
-  }
+  };
 
   listen.onstart = _ => console.log("listening...");
   listen.onresult = e => {
