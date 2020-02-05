@@ -11,6 +11,13 @@ Small demo project for voice controlled of the Spotify playback, built with Reac
 5. You can say “play” “pause” “back” “next”
 6. (optional) Open console to see what the browser thought you said, that should bring a laugh
 
+```
+### Troubleshooting
+In case the app gets stuck in loading screen, try clearing your session storage, and hit refresh
+
+```
+---
+
 ## License & Copyright
 
 Copyright 2020 Georgios Kyriakou
