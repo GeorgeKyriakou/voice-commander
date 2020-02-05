@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/auth.context";
-import { GlobalStyle } from "../../styles";
+import { GlobalStyle, theme } from "../../styles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from "../../utils/protectedRoute";
 import { LoginComponent } from "../login/login.component";
 import { WebPlayerComponent } from "../web-player/web-player.component";
 import { CallbackComponent } from "../callback/callback.component";
+import { ThemeProvider } from "styled-components";
 
 interface Props {}
 export const MainComponent: React.FC<Props> = () => {
@@ -17,7 +18,7 @@ export const MainComponent: React.FC<Props> = () => {
   }, [isAuthenticated]);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Router>
         <div className="app">
@@ -50,6 +51,6 @@ export const MainComponent: React.FC<Props> = () => {
           </div>
         </div>
       </Router>
-    </>
+    </ThemeProvider>
   );
 };

@@ -8,9 +8,7 @@ import { theme } from "./styles";
 const App: React.FC = () => {
   return (
     <AuthState>
-      <ThemeProvider theme={theme}>
         <MainComponent />
-      </ThemeProvider>
     </AuthState>
   );
 };

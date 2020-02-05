@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Voice Commander",
+  "name": "Controll your Spotify Playback with your voice!",
   "icons": [
     {
       "src": "favicon.ico",
