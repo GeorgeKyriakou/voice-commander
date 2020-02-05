@@ -26,7 +26,7 @@ const AuthState = (props: any) => {
       const scopes =
         "user-modify-playback-state user-read-playback-state streaming user-read-email user-read-private";
       const client_id = "e222016a7b824d779c374b4c87687ddd";
-      const redirect_uri = environment.redirectLocal;
+      const redirect_uri = environment.redirectURL;
       window.location.href = `https://accounts.spotify.com/authorize?response_type=token&client_id=${client_id}&scope=${encodeURIComponent(
         scopes
       )}&redirect_uri=${encodeURIComponent(redirect_uri)}`;

@@ -10,9 +10,7 @@ export const CallbackComponent: React.FC<Props> = () => {
   useEffect(() => {
     if (!token) {
       const hash = window.location.hash;
-      const access_token = parseHash(`${hash}`);      
-      console.log({access_token});
-      
+      const access_token = parseHash(`${hash}`);                  
       if (access_token) {
         loginSuccess(access_token);
       } else {
